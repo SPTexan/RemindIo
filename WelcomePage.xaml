@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemindIo.WelcomePage"
+             BackgroundColor="#00257a">
+
+    <Grid Padding="20" RowDefinitions="*,Auto">
+
+        <!-- Górna część: logo, tekst itd. -->
+        <VerticalStackLayout Grid.Row="0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="20">
+
+            <Label Text="RemindIo"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Always remember where you put your wallet."
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Padding="20"/>
+
+        </VerticalStackLayout>
+
+        <Button Grid.Row="1"
+                Text="Zacznij"
+                BackgroundColor="White"
+                TextColor="#000000"
+                FontSize="20"
+                CornerRadius="15"
+                Padding="15"
+                Clicked="OnStartClicked"
+                HorizontalOptions="Fill"
+                VerticalOptions="End"/>
+
+    </Grid>
+</ContentPage>

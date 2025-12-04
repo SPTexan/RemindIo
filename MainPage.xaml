@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemindIo.MainPage"
+             BackgroundColor="#00257a">
+
+    <VerticalStackLayout Padding="20" Spacing="30">
+
+        <Label Text="Co chciałbyś zrobić?"
+        FontSize="20"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"/>
+
+        <Button Text="Dodaj przypomnienie"
+                BackgroundColor="White"
+                TextColor="#000000"
+                />
+
+        <Button Text="Zobacz liste"
+                BackgroundColor="White"
+                />
+
+    </VerticalStackLayout>
+</ContentPage>
