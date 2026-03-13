@@ -7,18 +7,20 @@
     <VerticalStackLayout Padding="20" Spacing="30">
 
         <Label Text="Co chciałbyś zrobić?"
-        FontSize="20"
-        FontAttributes="Bold"
-        HorizontalOptions="Center"/>
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
 
         <Button Text="Dodaj przypomnienie"
                 BackgroundColor="White"
                 TextColor="#000000"
-                />
+                Clicked="AddReminderClicked"/>
 
         <Button Text="Zobacz liste"
                 BackgroundColor="White"
-                />
+                TextColor="#000000"
+                Clicked="ViewRemindersClicked"/>
 
     </VerticalStackLayout>
+
 </ContentPage>

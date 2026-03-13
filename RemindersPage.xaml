@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemindIo.RemindersPage"
+             Title="Moje przypomnienia">
+
+    <CollectionView x:Name="remindersList">
+
+        <CollectionView.ItemTemplate>
+
+            <DataTemplate>
+
+                <SwipeView>
+
+                    <SwipeView.RightItems>
+
+                        <SwipeItems>
+
+                            <SwipeItem Text="Edytuj"
+           BackgroundColor="LightBlue"
+           CommandParameter="{Binding .}"
+           Invoked="EditReminder"/>
+
+                            <SwipeItem Text="Usuń"
+           BackgroundColor="Red"
+           CommandParameter="{Binding .}"
+           Invoked="DeleteReminder"/>
+
+                        </SwipeItems>
+
+                    </SwipeView.RightItems>
+
+                    <Frame Margin="10">
+
+                        <VerticalStackLayout>
+
+                            <Label Text="{Binding Title}" FontAttributes="Bold"/>
+
+                            <Label Text="{Binding Description}"/>
+
+                            <Image Source="{Binding PhotoPath}" HeightRequest="150"/>
+
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+                </SwipeView>
+
+            </DataTemplate>
+
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+
+</ContentPage>

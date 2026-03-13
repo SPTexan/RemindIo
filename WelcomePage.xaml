@@ -6,7 +6,6 @@
 
     <Grid Padding="20" RowDefinitions="*,Auto">
 
-        <!-- Górna część: logo, tekst itd. -->
         <VerticalStackLayout Grid.Row="0"
                              VerticalOptions="Center"
                              HorizontalOptions="Center"
@@ -37,4 +36,5 @@
                 VerticalOptions="End"/>
 
     </Grid>
+
 </ContentPage>

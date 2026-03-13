@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemindIo.AddReminderPage"
+             Title="Dodaj przypomnienie">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Entry x:Name="titleEntry"
+       Placeholder="Tytuł"/>
+
+            <Editor x:Name="descriptionEntry"
+        Placeholder="Opis"/>
+
+            <Label Text="Godzina początkowa"/>
+
+            <TimePicker x:Name="startTimePicker"/>
+
+            <Label Text="Godzina końcowa"/>
+
+            <TimePicker x:Name="endTimePicker"/>
+
+            <Button Text="Pobierz GPS"
+        Clicked="GetLocationClicked"/>
+
+            <Button Text="Zrób zdjęcie"
+        Clicked="TakePhotoClicked"/>
+
+            <Image x:Name="photoPreview"
+       HeightRequest="200"/>
+
+            <Button Text="Zapisz przypomnienie"
+        Clicked="SaveReminderClicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,17 +1,19 @@
-﻿namespace RemindIo
+﻿namespace RemindIo;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    public MainPage()
     {
-        int count = 0;
+        InitializeComponent();
+    }
 
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+    private async void AddReminderClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AddReminderPage());
+    }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
-        {
-           
-        }
+    private async void ViewRemindersClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new RemindersPage());
     }
 }
