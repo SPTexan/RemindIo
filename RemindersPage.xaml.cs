@@ -13,7 +13,15 @@ public partial class RemindersPage : ContentPage
     void LoadReminders()
     {
         reminders = ReminderService.Load();
+
+        remindersList.ItemsSource = null;
         remindersList.ItemsSource = reminders;
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        LoadReminders();
     }
 
     private async void DeleteReminderClicked(object sender, EventArgs e)
@@ -21,12 +29,15 @@ public partial class RemindersPage : ContentPage
         var button = sender as Button;
         var reminder = button.CommandParameter as Reminder;
 
-        bool confirm = await DisplayAlert("Usuń", "Czy usunąć przypomnienie?", "Tak", "Nie");
+        bool confirm = await DisplayAlert("Usuń",
+                                          "Czy usunąć przypomnienie?",
+                                          "Tak",
+                                          "Nie");
 
         if (!confirm)
             return;
 
-        reminders.Remove(reminder);
+        reminders.RemoveAll(r => r.CreatedAt == reminder.CreatedAt);
 
         ReminderService.Save(reminders);
 

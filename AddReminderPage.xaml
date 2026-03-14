@@ -22,8 +22,6 @@
 
             <TimePicker x:Name="endTimePicker"/>
 
-            <!-- opcjonalna data -->
-
             <HorizontalStackLayout>
 
                 <Label Text="Ustaw konkretną datę"/>

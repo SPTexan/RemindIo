@@ -86,7 +86,7 @@ public partial class AddReminderPage : ContentPage
 
         if (editingReminder != null)
         {
-            reminders.Remove(editingReminder);
+            reminders.RemoveAll(r => r.CreatedAt == editingReminder.CreatedAt);
         }
 
         DateTime? selectedDate = null;
@@ -112,6 +112,34 @@ public partial class AddReminderPage : ContentPage
         reminders.Add(reminder);
 
         ReminderService.Save(reminders);
+
+        // Powiadomienie
+
+        DateTime notificationTime;
+
+        if (selectedDate != null)
+        {
+            notificationTime = selectedDate.Value + reminder.StartTime;
+        }
+        else
+        {
+            notificationTime = DateTime.Today + reminder.StartTime;
+        }
+
+        var request = new NotificationRequest
+        {
+            NotificationId = new Random().Next(),
+            Title = "RemindIo",
+            Description = reminder.Title,
+            Schedule = new NotificationRequestSchedule
+            {
+                NotifyTime = notificationTime
+            }
+        };
+
+        // await LocalNotificationCenter.Current.Show(request);
+
+        await DisplayAlert("OK", "Przypomnienie zapisane", "OK");
 
         await Navigation.PopAsync();
     }
