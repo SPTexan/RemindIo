@@ -14,6 +14,8 @@ public class Reminder
 
     public TimeSpan EndTime { get; set; }
 
+    public DateTime? ReminderDate { get; set; }
+
     public double Latitude { get; set; }
 
     public double Longitude { get; set; }

@@ -9,7 +9,7 @@
         <VerticalStackLayout Padding="20" Spacing="15">
 
             <Entry x:Name="titleEntry"
-       Placeholder="Tytuł"/>
+       Placeholder="Tytuł przypomnienia"/>
 
             <Editor x:Name="descriptionEntry"
         Placeholder="Opis"/>
@@ -22,6 +22,19 @@
 
             <TimePicker x:Name="endTimePicker"/>
 
+            <!-- opcjonalna data -->
+
+            <HorizontalStackLayout>
+
+                <Label Text="Ustaw konkretną datę"/>
+
+                <Switch x:Name="dateSwitch"/>
+
+            </HorizontalStackLayout>
+
+            <DatePicker x:Name="datePicker"
+            IsEnabled="{Binding Source={x:Reference dateSwitch}, Path=IsToggled}"/>
+
             <Button Text="Pobierz GPS"
         Clicked="GetLocationClicked"/>
 
@@ -32,7 +45,9 @@
        HeightRequest="200"/>
 
             <Button Text="Zapisz przypomnienie"
-        Clicked="SaveReminderClicked"/>
+        Clicked="SaveReminderClicked"
+        BackgroundColor="#4CAF50"
+        TextColor="White"/>
 
         </VerticalStackLayout>
 

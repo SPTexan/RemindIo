@@ -31,6 +31,12 @@ public partial class AddReminderPage : ContentPage
 
             if (!string.IsNullOrEmpty(photoPath))
                 photoPreview.Source = ImageSource.FromFile(photoPath);
+
+            if (reminder.ReminderDate != null)
+            {
+                dateSwitch.IsToggled = true;
+                datePicker.Date = reminder.ReminderDate.Value;
+            }
         }
     }
 
@@ -83,12 +89,20 @@ public partial class AddReminderPage : ContentPage
             reminders.Remove(editingReminder);
         }
 
+        DateTime? selectedDate = null;
+
+        if (dateSwitch.IsToggled)
+        {
+            selectedDate = datePicker.Date;
+        }
+
         var reminder = new Reminder
         {
             Title = titleEntry.Text,
             Description = descriptionEntry.Text,
             StartTime = startTimePicker.Time,
             EndTime = endTimePicker.Time,
+            ReminderDate = selectedDate,
             Latitude = latitude,
             Longitude = longitude,
             PhotoPath = photoPath,
@@ -98,8 +112,6 @@ public partial class AddReminderPage : ContentPage
         reminders.Add(reminder);
 
         ReminderService.Save(reminders);
-
-        await DisplayAlert("OK", "Przypomnienie zapisane", "OK");
 
         await Navigation.PopAsync();
     }

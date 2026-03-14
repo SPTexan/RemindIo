@@ -7,7 +7,6 @@ public partial class RemindersPage : ContentPage
     public RemindersPage()
     {
         InitializeComponent();
-
         LoadReminders();
     }
 
@@ -17,14 +16,15 @@ public partial class RemindersPage : ContentPage
         remindersList.ItemsSource = reminders;
     }
 
-    private async void DeleteReminder(object sender, EventArgs e)
+    private async void DeleteReminderClicked(object sender, EventArgs e)
     {
-        var swipeItem = sender as SwipeItem;
-        var reminder = swipeItem.CommandParameter as Reminder;
+        var button = sender as Button;
+        var reminder = button.CommandParameter as Reminder;
 
-        bool confirm = await DisplayAlert("Usuń", "Czy chcesz usunąć przypomnienie?", "Tak", "Nie");
+        bool confirm = await DisplayAlert("Usuń", "Czy usunąć przypomnienie?", "Tak", "Nie");
 
-        if (!confirm) return;
+        if (!confirm)
+            return;
 
         reminders.Remove(reminder);
 
@@ -33,10 +33,10 @@ public partial class RemindersPage : ContentPage
         LoadReminders();
     }
 
-    private async void EditReminder(object sender, EventArgs e)
+    private async void EditReminderClicked(object sender, EventArgs e)
     {
-        var swipeItem = sender as SwipeItem;
-        var reminder = swipeItem.CommandParameter as Reminder;
+        var button = sender as Button;
+        var reminder = button.CommandParameter as Reminder;
 
         await Navigation.PushAsync(new AddReminderPage(reminder));
     }
